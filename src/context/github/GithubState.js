@@ -20,6 +20,9 @@ githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET;
 console.log(githubClientId);
 console.log(githubClientSecret);
 
+console.log(process.env.GITHUB_CLIENT_ID);
+console.log(process.env.GITHUB_CLIENT_SECRET);
+
 const GithubState = (props) => {
   const initialState = {
     users: [],
