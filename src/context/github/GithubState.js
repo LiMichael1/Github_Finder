@@ -11,9 +11,6 @@ import {
   GET_REPOS,
 } from '../types';
 
-let githubClientId;
-let githubClientSecret;
-
 console.log(process.env);
 
 const GithubState = (props) => {
