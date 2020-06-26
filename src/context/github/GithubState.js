@@ -14,16 +14,15 @@ import {
 let githubClientId;
 let githubClientSecret;
 
-githubClientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
-githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET;
+if (process.env.NODE_ENV !== 'production') {
+  githubClientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
+  githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET;
+} else {
+  githubClientId = process.env.GITHUB_CLIENT_ID;
+  githubClientSecret = process.env.GITHUB_CLIENT_SECRET;
+}
 
 console.log(process.env);
-
-console.log(githubClientId);
-console.log(githubClientSecret);
-
-console.log(process.env.GITHUB_CLIENT_ID);
-console.log(process.env.GITHUB_CLIENT_SECRET);
 
 const GithubState = (props) => {
   const initialState = {
@@ -38,6 +37,10 @@ const GithubState = (props) => {
   // Search Github Users
   const searchUsers = async (text) => {
     setLoading();
+
+    console.log(githubClientId);
+    console.log(githubClientSecret);
+
     const res = await axios.get(
       `http://api.github.com/search/users?q=${text}&client_id=
       ${githubClientId}&client_secret=
