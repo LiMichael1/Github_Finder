@@ -21,8 +21,8 @@ const GithubState = (props) => {
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
 
-  githubClientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
-  githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET;
+  let githubClientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
+  let githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET;
 
   // Search Github Users
   const searchUsers = async (text) => {
