@@ -11,8 +11,6 @@ import {
   GET_REPOS,
 } from '../types';
 
-console.log(process.env);
-
 const GithubState = (props) => {
   const initialState = {
     users: [],
@@ -27,11 +25,8 @@ const GithubState = (props) => {
   const searchUsers = async (text) => {
     setLoading();
 
-    console.log(process.env.REACT_APP_GITHUB_CLIENT_ID);
-    console.log(process.env.REACT_APP_GITHUB_CLIENT_SECRET);
-
     const res = await axios.get(
-      `http://api.github.com/search/users?q=${text}&client_id=
+      `https://api.github.com/search/users?q=${text}&client_id=
       ${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=
       ${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
@@ -47,7 +42,7 @@ const GithubState = (props) => {
     setLoading();
 
     const res = await axios.get(
-      `http://api.github.com/users/${username}?client_id=
+      `https://api.github.com/users/${username}?client_id=
       ${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=
       ${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
@@ -63,7 +58,7 @@ const GithubState = (props) => {
     setLoading();
 
     const res = await axios.get(
-      `http://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&
+      `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&
       client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&
       client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
