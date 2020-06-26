@@ -17,6 +17,8 @@ let githubClientSecret;
 githubClientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
 githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET;
 
+console.log(process.env);
+
 console.log(githubClientId);
 console.log(githubClientSecret);
 
